@@ -1,0 +1,33 @@
+.component{
+    color: #f9f9f9;
+    padding-top: 50px;
+}
+
+.table {
+    border: 1px solid #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #161616;
+}
+
+td {
+    text-align: center;
+    width: 150px;
+}
+
+.actionBtn{
+    background-color: #157ae1;
+    color: #f9f9f9;
+    border: none;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.actionBtn:hover {
+    background-color: #062c5b;
+}

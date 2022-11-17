@@ -1,0 +1,65 @@
+.login{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #062c5b;
+}
+
+.loginContainer {
+    background-color: #161616;
+    border-radius: 5px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userInput {
+    flex:0.6;
+    display: flex;
+    flex-direction: column;
+}
+
+.userInput > h2 {
+    text-align: center;
+    color: #f9f9f9;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.studentNumInput {
+    margin-bottom: 10px;
+    border: none;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: #f9f9f9;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.studentNumInput:focus{
+    outline: none;
+}
+
+.signInBtn {
+    border: none;
+    background-color: #157ae1;
+    color: #f9f9f9;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 5px;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top:5%;
+    padding-bottom: 5%;
+    cursor: pointer;
+}
+
+.signInBtn:hover{
+    background-color: #062c5b;
+}
