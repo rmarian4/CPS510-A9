@@ -9,6 +9,11 @@ studentRouter.get("/:id", async (request, response) => {
     return response.json(students[0])
 });
 
+studentRouter.get("/enrolledCourses/:id", async (request, response) => {
+    const enrolledCourses = await queries.getEnrolledCourses(request.params.id)
+    return response.json(enrolledCourses)
+})
+
 /*
 Todo:
     -add functionality to enroll and unenroll students from a course

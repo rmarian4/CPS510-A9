@@ -1,7 +1,7 @@
 import React from "react";
 import './component.css';
 
-const Course = () => {
+const Course = ({courseId, courseName, instructorName, schDay1, schTime1, loc1, schDay2, schTime2, loc2}) => {
     return (
         <div className="component">
             <table className="table">
@@ -9,6 +9,7 @@ const Course = () => {
                     <tr>
                         <th>Course Id</th>
                         <th>Course Name</th>
+                        <th>Instructor Name</th>
                         <th>Scheduled Day</th>
                         <th>Scheduled Time</th>
                         <th>Location</th>
@@ -16,21 +17,23 @@ const Course = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>CPS633</td>
-                        <td>Computer Security</td>
-                        <td>Tuesday</td>
-                        <td>14-16</td>
-                        <td>ENG103</td>
+                        <td>{courseId}</td>
+                        <td>{courseName}</td>
+                        <td>{instructorName}</td>
+                        <td>{schDay1}</td>
+                        <td>{schTime1}</td>
+                        <td>{loc1}</td>
                         <td>
                             <input className="actionBtn" type='button' value='enroll'/>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
-                        <th></th>
-                        <td>Thursday</td>
-                        <td>15-16</td>
-                        <td>ENG103</td>
+                        <td></td>
+                        <td></td>
+                        <td>{schDay2}</td>
+                        <td>{schTime2}</td>
+                        <td>{loc2}</td>
                     </tr>
                 </tbody>
                 
