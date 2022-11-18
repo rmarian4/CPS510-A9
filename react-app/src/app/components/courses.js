@@ -26,6 +26,8 @@ const Courses = () => {
                         schDay2 = {courses[i+1].SCHEDULEDDAY}
                         schTime2 = {courses[i+1].SCHEDULEDTIME}
                         loc2 = {courses[i+1].SECTIONLOCATION}
+                        purpose = 'enroll'
+                        btnVal= 'Enroll'
                     />)
                 }
             })}

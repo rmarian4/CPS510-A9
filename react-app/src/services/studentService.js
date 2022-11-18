@@ -7,3 +7,18 @@ export const getStudent = async (studentId) => {
     return response.data
 }
 
+export const getCoursesEnrolledIn = async (studentId) => {
+    let response = await axios.get(`${connection}/students/enrolledCourses/${studentId}`)
+    return response.data
+}
+
+export const getCoursesWaitlistedFor = async (studentId) => {
+    let response = await axios.get(`${connection}/students/waitListedCourses/${studentId}`)
+    return response.data
+}
+
+export const getStudentTuition = async (studentId) => {
+    let response = await axios.get(`${connection}/students/tuition/${studentId}`)
+    return response.data
+}
+

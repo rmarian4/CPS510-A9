@@ -1,7 +1,8 @@
 import React from "react";
 import './component.css';
 
-const Course = ({courseId, courseName, instructorName, schDay1, schTime1, loc1, schDay2, schTime2, loc2}) => {
+const Course = ({courseId, courseName, instructorName, schDay1, schTime1, loc1, schDay2, schTime2, loc2, purpose, btnVal}) => {
+    
     return (
         <div className="component">
             <table className="table">
@@ -24,7 +25,9 @@ const Course = ({courseId, courseName, instructorName, schDay1, schTime1, loc1, 
                         <td>{schTime1}</td>
                         <td>{loc1}</td>
                         <td>
-                            <input className="actionBtn" type='button' value='enroll'/>
+                            {purpose === 'enroll' || purpose === 'drop' || purpose === 'swap' || purpose === 'Remove'
+                            ? <input className="actionBtn" type='button' value={btnVal}/> 
+                            : <></>}
                         </td>
                     </tr>
                     <tr>

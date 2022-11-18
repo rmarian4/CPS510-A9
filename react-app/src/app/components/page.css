@@ -6,3 +6,8 @@
     overflow: scroll;
     flex-direction: column;
 }
+
+.page > h1 {
+    color: #f9f9f9;
+    margin:10px;
+}
