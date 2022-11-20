@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FinancialTable from "./financialTable";
 import './page.css';
-import { useSelector } from "react-redux";
-import { selectStudentTuition } from "../../features/studentTuitionSlice";
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectStudentTuition, fetchStudentTuition } from "../../features/studentTuitionSlice";
+import { selectStudent } from "../../features/studentSlice";
 const FinancialInfo = () => {
     const studentTuitionInfo = useSelector(selectStudentTuition)
+    const student = useSelector(selectStudent)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchStudentTuition(student.STUDENTID))
+    }, [])
+
 
     if(studentTuitionInfo.length  === 0){
         return(

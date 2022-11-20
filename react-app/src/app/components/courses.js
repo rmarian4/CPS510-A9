@@ -6,7 +6,7 @@ import { selectCourses } from "../../features/coursesSlice";
 
 const Courses = () => {
     const courses = useSelector(selectCourses)
-    
+
     if(courses === null){
         return <></>
     }
@@ -19,6 +19,7 @@ const Courses = () => {
                         key = {i}
                         courseId = {course.COURSEID}
                         courseName = {course.COURSETITLE}
+                        sectionNum = {course.SECTIONNUM}
                         instructorName = {course.INSTRUCTORNAME} 
                         schDay1 = {course.SCHEDULEDDAY}
                         schTime1 = {course.SCHEDULEDTIME}
@@ -26,6 +27,8 @@ const Courses = () => {
                         schDay2 = {courses[i+1].SCHEDULEDDAY}
                         schTime2 = {courses[i+1].SCHEDULEDTIME}
                         loc2 = {courses[i+1].SECTIONLOCATION}
+                        waitlistCapacity = {course.WAITLISTCAPACITY}
+                        sectionCapacity = {course.SECTIONCAPACITY}
                         purpose = 'enroll'
                         btnVal= 'Enroll'
                     />)

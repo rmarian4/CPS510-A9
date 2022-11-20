@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCoursesEnrolledIn, getCoursesWaitlistedFor } from '../services/studentService';
+import { getCoursesEnrolledIn, getCoursesWaitlistedFor, dropCourse, removeWaitlistedCourse } from '../services/studentService';
 
 const initialState = {
     enrolledCourses: null,
@@ -17,6 +17,13 @@ export const studentCoursesSlice = createSlice({
     }, 
     getWaitListedCourses:(state,action) => {
       return {...state, waitListedCourses: action.payload}
+    },
+    removeEnrolledCourse:(state, action) => {
+      return {...state, enrolledCourses: state.enrolledCourses.filter(c => c.COURSEID !== action.payload.courseId)}
+    }, 
+    removeCourseFromWaitlist:(state, action) => {
+      let updatedWaitlistedCourses = state.waitListedCourses.filter(course => course.COURSEID !== action.payload.courseId || (course.COURSEID === action.payload.courseId && course.SECTIONNUM !== action.payload.sectionNum))
+      return {...state, waitListedCourses: updatedWaitlistedCourses}
     }
   },
 });
@@ -35,7 +42,23 @@ export const fetchWaitlistedCourses = (studentId) => {
     }
 }
 
-export const { getEnrolledCourses, getWaitListedCourses } = studentCoursesSlice.actions;
+export const dropEnrolledCourse = (studentId, courseId, sectionNum) => {
+    return async dispatch => {
+      await dropCourse(studentId, courseId, sectionNum)
+      let courseInfo = {courseId, sectionNum}
+      dispatch(removeEnrolledCourse(courseInfo))
+    }
+}
+
+export const dropCourseFromWaitlist = (studentId, courseId, sectionNum) => {
+    return async dispatch => {
+      await removeWaitlistedCourse(studentId, courseId, sectionNum)
+      let courseInfo = {studentId, courseId, sectionNum}
+      dispatch(removeCourseFromWaitlist(courseInfo))
+    }
+}
+
+export const { getEnrolledCourses, getWaitListedCourses, removeEnrolledCourse, removeCourseFromWaitlist } = studentCoursesSlice.actions;
 
 export const selectStudentCourses = (state) => state.studentCourses;
 

@@ -1,0 +1,15 @@
+.tables {
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.closebtn {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+p {
+    margin-left: 10px;
+}

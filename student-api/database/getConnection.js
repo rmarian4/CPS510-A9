@@ -1,4 +1,5 @@
 const oracledb = require("oracledb")
+oracledb.autoCommit = true;
 oracledb.initOracleClient({libDir: 'C:\\instantclient_11_2'});
 oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 

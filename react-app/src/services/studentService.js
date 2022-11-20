@@ -22,3 +22,15 @@ export const getStudentTuition = async (studentId) => {
     return response.data
 }
 
+export const dropCourse = async (studentId, courseId, sectionNum) => {
+    await axios.delete(`${connection}/students/dropCourse/${studentId}/${courseId}/${sectionNum}`)
+}
+
+export const removeWaitlistedCourse = async (studentId, courseId, sectionNum) => {
+    await axios.delete(`${connection}/students/removeCourseFromWaitlist/${studentId}/${courseId}/${sectionNum}`)
+}
+
+export const enrollStudentInCourse = async (studentId, courseId, sectionNum, waitlistCapacity, sectionCapacity) => {
+    await axios.post(`${connection}/students/enrollStudent/${studentId}/${courseId}/${sectionNum}/${waitlistCapacity}/${sectionCapacity}`)
+}
+
